@@ -7,5 +7,21 @@
 </head>
 <body>
     <h1> Things I need to do</h1>
+    {% for item in items %}
+        <table>
+        <tr>
+        {% if item.done %}
+		<td><strike>{{item.name}}</strike></td>
+		{% else %}
+		<td>{{item.name}}</td>
+		{%endif%}
+        </tr>
+        </table>
+      
+    {% empty %}
+    <tr><td> You have nothing to do....</td></tr>
+
+    {%endfor%}
+	<a href="/add">Add an item</a>
 </body>
 </html>
